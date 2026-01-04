@@ -1,15 +1,14 @@
+import dotenv from "dotenv";
 import express from "express";
+import mysql from "mysql2/promise";
+dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 3000;
-import taskRouter from "./routes/tasks.js";
+const port = process.env.PORT;
 
+import taskRouter from "./src/routes/tasks.js";
 // middleware for parsing json
 app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.send("Hello World!!!");
-});
 
 app.use("/tasks", taskRouter);
 
