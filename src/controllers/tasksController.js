@@ -3,7 +3,6 @@ import pool from "../../util/db.js";
 /*
  * TODO:
  *  - check if correct response code is used in error handling
- *  - consider using excert tool
  *  - authentication
  *  */
 
