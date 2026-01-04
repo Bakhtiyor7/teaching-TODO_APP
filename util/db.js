@@ -13,6 +13,4 @@ const pool = mysql.createPool({
   password: process.env.DB_PASSWORD,
 });
 
-const dbname = process.env.DATABASE_NAME;
-
 export default pool;

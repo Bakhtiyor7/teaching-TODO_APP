@@ -65,6 +65,17 @@ export const getOneTask = async (req, res) => {
 export const deleteTask = async (req, res) => {
   try {
     const id = parseInt(req.params.id);
+
+    // check if task already exists !important (good user feedback)
+    const [existingTask] = await pool.query(
+      `SELECT id FROM tasks WHERE id = ?`,
+      [id],
+    );
+
+    if (existingTask.length === 0) {
+      return res.status(404).json({ error: "Task not found" });
+    }
+
     const query = `DELETE FROM tasks WHERE id = ?`;
     const [result] = await pool.query(query, [id]);
 
