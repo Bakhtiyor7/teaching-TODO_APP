@@ -6,4 +6,4 @@ npm-shrinkwrap.json
 *.gz
 
 # env
-../.env
+.env
